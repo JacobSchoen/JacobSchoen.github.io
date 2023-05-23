@@ -2,10 +2,10 @@ import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
-import CanvasLoader from "../loader";
+import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.glb");
+  const computer = useGLTF("./workbench/hacker_room.glb");
 
   return (
     <mesh>
@@ -20,9 +20,9 @@ const Computers = ({ isMobile }) => {
       />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
-        rotation={[-0.01, -0.2, -0.1]}
+        scale={isMobile ? 0.02 : 0.03}
+        position={isMobile ? [-0.2, -2, -0.23] : [0.1, -3, -0.2]}
+        rotation={[0, -1.8, 0]}
       />
     </mesh>
   );
@@ -63,7 +63,7 @@ const ComputersCanvas = () => {
         <OrbitControls
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / -1}
         />
         <Computers isMobile={isMobile} />
       </Suspense>
